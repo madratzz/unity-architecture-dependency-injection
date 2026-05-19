@@ -1,0 +1,18 @@
+{
+    "name": "Project.Feature.Waves",
+    "rootNamespace": "ProjectGame.Features.Waves",
+    "references": [
+        "Project.Core.Interfaces",
+        "Project.Core.Runtime",
+        "Project.Feature.Asteroids"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

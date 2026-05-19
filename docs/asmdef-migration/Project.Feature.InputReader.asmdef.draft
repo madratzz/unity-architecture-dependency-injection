@@ -1,0 +1,17 @@
+{
+    "name": "Project.Feature.InputReader",
+    "rootNamespace": "ProjectGame.Features.InputReader",
+    "references": [
+        "Project.Core.Interfaces",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

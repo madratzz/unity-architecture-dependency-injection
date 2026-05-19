@@ -1,0 +1,16 @@
+{
+    "name": "Project.Feature.ScreenWrap",
+    "rootNamespace": "ProjectGame.Features.ScreenWrap",
+    "references": [
+        "Project.Core.Interfaces"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

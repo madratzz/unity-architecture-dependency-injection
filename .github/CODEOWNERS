@@ -1,0 +1,30 @@
+# CODEOWNERS — require review from owning team on changes to their modules
+# Syntax: <path pattern>  <@user or @org/team>
+# Replace team handles with your actual GitHub org/team slugs.
+
+# Core systems & DI setup — Platform team must review
+/Assets/_Game/Core/                         @your-org/platform-team
+/Assets/_Game/GamePlay/                     @your-org/platform-team
+/Assets/_Game/Core/VContainer/              @your-org/platform-team
+
+# Gameplay features — Gameplay team must review
+/Assets/_Game/Features/Player/              @your-org/gameplay-team
+/Assets/_Game/Features/Asteroids/          @your-org/gameplay-team
+/Assets/_Game/Features/Waves/              @your-org/gameplay-team
+/Assets/_Game/Features/Weapons/            @your-org/gameplay-team
+/Assets/_Game/Features/ScreenWrap/         @your-org/gameplay-team
+
+# UI — UI team must review
+/Assets/_Game/UI/                           @your-org/ui-team
+
+# Tests — owning team + QA must both review
+/Assets/_Game/Tests/                        @your-org/gameplay-team @your-org/qa-team
+/Assets/_Game/Core/Tests/                   @your-org/platform-team @your-org/qa-team
+
+# Package manifest — any dependency change needs tech lead sign-off
+/Packages/manifest.json                     @your-org/platform-team @your-org/tech-leads
+/ThirdPartyPackages/                        @your-org/platform-team @your-org/tech-leads
+
+# Architecture docs — tech leads review
+/docs/                                      @your-org/tech-leads
+/ARCHITECTURE_AUDIT.md                      @your-org/tech-leads

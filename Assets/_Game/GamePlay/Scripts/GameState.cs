@@ -25,9 +25,10 @@ namespace ProjectCore.GamePlay
         [SerializeField] protected GameEvent LevelFail;
         
         // Runtime Handles (To track memory)
-        protected AsyncOperationHandle<GameObject> _hudHandle;
-        protected AsyncOperationHandle<GameObject> _levelHandle;
-        
+        // [NonSerialized] prevents Unity from serializing these into the SO asset between play sessions
+        [NonSerialized] protected AsyncOperationHandle<GameObject> _hudHandle;
+        [NonSerialized] protected AsyncOperationHandle<GameObject> _levelHandle;
+
         [NonSerialized] protected GameHud _gameHud;
         [NonSerialized] protected GameObject _levelObject;
         

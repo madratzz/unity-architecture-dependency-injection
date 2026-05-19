@@ -1,0 +1,17 @@
+{
+    "name": "Project.UI",
+    "rootNamespace": "ProjectGame.UI",
+    "references": [
+        "Project.Core.Interfaces",
+        "Project.Core.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,86 @@
+# EditorConfig — Unity project coding standards
+# See https://editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+indent_style = space
+indent_size = 4
+
+# var usage
+dotnet_style_var_for_built_in_types = false:suggestion
+dotnet_style_var_when_type_is_apparent = true:suggestion
+dotnet_style_var_elsewhere = false:suggestion
+
+# Braces — always required
+csharp_prefer_braces = true:warning
+
+# Namespace declarations — file-scoped where supported (Unity 2022+)
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# Expression body — prefer for simple getters
+csharp_style_expression_bodied_properties = when_on_single_line:suggestion
+csharp_style_expression_bodied_methods = false:silent
+
+# Null checks
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+
+# Unused parameters
+dotnet_code_quality_unused_parameters = all:warning
+
+# Naming — private fields with underscore prefix
+dotnet_naming_rule.private_fields_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore.style = underscore_prefix
+dotnet_naming_rule.private_fields_underscore.severity = suggestion
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.underscore_prefix.required_prefix = _
+dotnet_naming_style.underscore_prefix.capitalization = camel_case
+
+# Constants — SCREAMING_SNAKE not required, PascalCase acceptable
+dotnet_naming_rule.constants_pascal.symbols = constants
+dotnet_naming_rule.constants_pascal.style = pascal_case_style
+dotnet_naming_rule.constants_pascal.severity = suggestion
+
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.required_modifiers = const
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Interfaces — I prefix required
+dotnet_naming_rule.interfaces_prefix.symbols = interfaces
+dotnet_naming_rule.interfaces_prefix.style = interface_style
+dotnet_naming_rule.interfaces_prefix.severity = warning
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+
+dotnet_naming_style.interface_style.required_prefix = I
+dotnet_naming_style.interface_style.capitalization = pascal_case
+
+[*.asmdef]
+indent_style = space
+indent_size = 4
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.yaml]
+indent_style = space
+indent_size = 2
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab

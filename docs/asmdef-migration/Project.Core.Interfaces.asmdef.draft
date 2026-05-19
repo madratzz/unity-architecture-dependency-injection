@@ -1,0 +1,14 @@
+{
+    "name": "Project.Core.Interfaces",
+    "rootNamespace": "ProjectCore.Interfaces",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
