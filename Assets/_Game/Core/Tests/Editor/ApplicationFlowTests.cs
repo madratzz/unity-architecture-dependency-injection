@@ -42,7 +42,7 @@ namespace ProjectCore.Tests
         }
 
         [Test]
-        public void InvalidContextAndReason_Should_DefaultToMainMenu()
+        public void InvalidContextAndReason_Should_DefaultToGame()
         {
             var result = _logic.GetDecision((FlowContext)999, (UICloseReasons)999);
             Assert.AreEqual(FlowIntent.DefaultToGame, result);

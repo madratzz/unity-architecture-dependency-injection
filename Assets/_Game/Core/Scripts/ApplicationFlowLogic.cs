@@ -17,8 +17,9 @@ namespace ProjectCore
 
         private void InitializeStrategies()
         {
+            Add(FlowContext.Boot,UICloseReasons.Game, FlowIntent.GoToGame);
             // --- LEVEL FAIL CONTEXT ---
-            Add(FlowContext.LevelFail, UICloseReasons.Game,      FlowIntent.GoToGame);
+            Add(FlowContext.LevelFail, UICloseReasons.Game, FlowIntent.GoToGame);
         }
 
         // Helper to keep the dictionary cleaner

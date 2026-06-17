@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectGame.Features.Player.Controllers.PlayerController
   Settings: {fileID: 11400000, guid: 183fd918b3677a74491a20c23fd09bbb, type: 2}
-  RespawnDelay: 2
   PlayerLives: {fileID: 11400000, guid: 5e484b0cb06896149875576ddccb6e0a, type: 2}
   Motor: {fileID: 8962865488131625892}
   InputReader: {fileID: 930379351742394974}
@@ -260,7 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd30cc4657f4d32b12ddd9d5b8af769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Runtime::ProjectGame.Features.Weapons.WeaponController
-  ProjectilePool: {fileID: 7524401357050728212}
   FirePoint: {fileID: 342807840562250748}
 --- !u!1 &3814621060710112140
 GameObject:
@@ -490,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8957e56ff6c442d385c0db3a2b958b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Runtime::ProjectGame.Features.ScreenWrap.ScreenWrapDebugger
-  _showGizmos: 1
+  ShowGizmos: 1
 --- !u!1 &6648474445356275443
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +498,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8660911867864898882}
-  - component: {fileID: 7524401357050728212}
   m_Layer: 6
   m_Name: WeaponSystem
   m_TagString: Untagged
@@ -524,26 +521,6 @@ Transform:
   - {fileID: 342807840562250748}
   m_Father: {fileID: 2719968176516104794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7524401357050728212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6648474445356275443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb5578eeaa94c4d8b039b96ebff154e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Project.Runtime::ProjectGame.Features.Weapons.ProjectilePool
-  PrefabReference:
-    m_AssetGUID: 9ccd74cffa2db7b4ba67d8db494ff03a
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
-  DefaultCapacity: 10
-  MaxSize: 50
 --- !u!1 &8235275913842636531
 GameObject:
   m_ObjectHideFlags: 0

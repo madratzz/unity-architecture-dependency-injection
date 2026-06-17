@@ -5,6 +5,7 @@ using ProjectGame.Features.Enemies;
 using UnityEngine;
 using ProjectGame.Features.Enemies.Logic;
 using ProjectGame.Features.Waves.Logic;
+using UnityEngine.AddressableAssets;
 using VContainer;
 
 namespace ProjectGame.Features.Waves
@@ -61,10 +62,10 @@ namespace ProjectGame.Features.Waves
 
             foreach (var binding in PoolRegistry)
             {
-                if (binding.Pool != null)
+                if (binding.AsteroidAssetReference != null)
                 {
                     // This handles ANY size you add to the Enum later!
-                    _poolMap[binding.Size] = binding.Pool;
+                    _poolMap[binding.Size] = new AsteroidPool(binding.AsteroidAssetReference);//binding.Pool;
                 }
             }
         }
@@ -173,7 +174,7 @@ namespace ProjectGame.Features.Waves
         public struct PoolBinding
         {
             public AsteroidSize Size;
-            public AsteroidPool Pool;
+            public AssetReference AsteroidAssetReference;
         }
     }
 }

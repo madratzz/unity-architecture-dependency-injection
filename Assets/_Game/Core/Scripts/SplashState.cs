@@ -6,6 +6,7 @@ using ProjectCore.Utilities;
 using ProjectCore.Variables;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using VContainer.Unity;
 
@@ -57,20 +58,16 @@ namespace ProjectCore
 
         private IEnumerator InstantiateApplicationFlowController()
         {
-            return AddressablesHelper.InstantiateGameObject(
-                ApplicationFlowControllerReference,
-                (controller, handle) =>
-                {
-                    _flowControllerInstance = controller
-                        .GetComponent<ApplicationFlowController>();
-                    
-                    if (_flowControllerInstance == null)
-                        Debug.LogError("[SplashState] Critical: Core systems failed to load.");
-                    
-                    var container = LifetimeScope.Find<RootLifetimeScope>().Container;
-                    container.InjectGameObject(controller); //Inject the Flow Controller via VContainer
-                }
-            );
+            var handle =  Addressables.LoadAssetAsync<GameObject>(ApplicationFlowControllerReference);
+
+            while (!handle.IsDone) yield return null;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                var container = LifetimeScope.Find<RootLifetimeScope>().Container;
+                _flowControllerInstance = container.Instantiate(handle.Result.GetComponent<ApplicationFlowController>());
+            }
+            
         }
 
         private IEnumerator LoadGameScene()

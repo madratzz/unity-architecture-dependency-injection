@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ProjectGame.Features.Player.Configs
 {
@@ -15,6 +16,8 @@ namespace ProjectGame.Features.Player.Configs
         public float BulletSpeed = 20f;
         public float BulletLifetime = 1f;
         public int Damage = 1; //Not Used but wanted to Extract in SO
+        
+        public AssetReference BulletPrefabReference;
         
         [Header("Repawn")]
         public float RespawnDelay = 2f;

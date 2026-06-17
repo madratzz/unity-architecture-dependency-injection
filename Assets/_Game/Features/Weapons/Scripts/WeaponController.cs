@@ -9,7 +9,7 @@ namespace ProjectGame.Features.Weapons
     public class WeaponController : MonoBehaviour
     {
         [Header("Dependencies")]
-        [SerializeField] private ProjectilePool ProjectilePool;
+        //[SerializeField] private ProjectilePool ProjectilePool;
         [SerializeField] private Transform FirePoint;
 
         private IPool<Projectile> _pool;
@@ -22,17 +22,17 @@ namespace ProjectGame.Features.Weapons
         {
             _input = input;
             _settings = settings;
-            
-            if (ProjectilePool != null) _pool = ProjectilePool;
+            _pool = new ProjectilePool(settings.BulletPrefabReference);
+            //if (ProjectilePool != null) _pool = ProjectilePool;
         }
         
-        private void Awake()
-        {
-            if (_pool == null && ProjectilePool != null)
-            {
-                _pool = ProjectilePool;
-            }
-        }
+        // private void Awake()
+        // {
+        //     if (_pool == null && ProjectilePool != null)
+        //     {
+        //         _pool = ProjectilePool;
+        //     }
+        // }
 
         private void Update()
         {

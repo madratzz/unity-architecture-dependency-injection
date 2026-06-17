@@ -56,7 +56,6 @@ namespace ProjectCore
         public void Boot()
         {
             Debug.Log("[Flow] Booting Application...");
-            // ExecuteIntent(FlowIntent.GoToGame);
             ResolveDecision(FlowContext.Boot, UICloseReasons.Game);
         }
 

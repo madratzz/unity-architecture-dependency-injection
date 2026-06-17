@@ -19,3 +19,10 @@ MonoBehaviour:
   BulletSpeed: 20
   BulletLifetime: 1
   Damage: 1
+  BulletPrefabReference:
+    m_AssetGUID: 9ccd74cffa2db7b4ba67d8db494ff03a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  RespawnDelay: 2

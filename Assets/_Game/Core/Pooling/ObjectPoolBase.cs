@@ -6,12 +6,11 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace ProjectGame.Core.Pooling
 {
-    public abstract class ObjectPoolBase<T> : MonoBehaviour where T : Component
+    public abstract class ObjectPoolBase<T> : IPool<T> where T : Component
     {
-        [Header("Pool Settings")]
-        [SerializeField] private AssetReference PrefabReference;
-        [SerializeField] private int DefaultCapacity = 10;
-        [SerializeField] private int MaxSize = 50;
+        private readonly AssetReference _prefabReference;
+        private readonly int _defaultCapacity;
+        private readonly int _maxSize;
 
         private ObjectPool<T> _pool;
         private GameObject _loadedPrefab;
@@ -19,18 +18,21 @@ namespace ProjectGame.Core.Pooling
         private Transform _container;
         
         public bool IsReady { get; private set; }
-        
-       
         public event Action OnInitialized;
+        
 
-        private void Start()
+        public ObjectPoolBase(AssetReference assetReference, int defaultCapacity=10, int maxSize=50)
         {
+            _prefabReference = assetReference;
+            _defaultCapacity = defaultCapacity;
+            _maxSize = maxSize;
+            
             LoadAsset();
         }
 
         private void LoadAsset()
         {
-            PrefabReference.LoadAssetAsync<GameObject>().Completed += handle =>
+            _prefabReference.LoadAssetAsync<GameObject>().Completed += handle =>
             {
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
@@ -51,7 +53,7 @@ namespace ProjectGame.Core.Pooling
 
         private void CreateContainer()
         {
-            var obj = new GameObject($"--- Pool: {PrefabReference.Asset.name} ---");
+            var obj = new GameObject($"--- Pool: {_prefabReference.Asset.name} ---");
             _container = obj.transform;
         }
 
@@ -63,19 +65,19 @@ namespace ProjectGame.Core.Pooling
                 actionOnRelease: OnReleaseItem,
                 actionOnDestroy: OnDestroyItem,
                 collectionCheck: false,
-                defaultCapacity: DefaultCapacity,
-                maxSize: MaxSize
+                defaultCapacity: _defaultCapacity,
+                maxSize: _maxSize
             );
         }
         
         protected virtual T CreateItem()
         {
-            return Instantiate(_loadedPrefab, _container).GetComponent<T>();
+            return UnityEngine.Object.Instantiate(_loadedPrefab, _container).GetComponent<T>();
         }
 
         protected virtual void OnGetItem(T item) => item.gameObject.SetActive(true);
         protected virtual void OnReleaseItem(T item) => item.gameObject.SetActive(false);
-        protected virtual void OnDestroyItem(T item) => Destroy(item.gameObject);
+        protected virtual void OnDestroyItem(T item) => UnityEngine.Object.Destroy(item.gameObject);
         
         
         public T Get() => _pool.Get();
@@ -83,7 +85,7 @@ namespace ProjectGame.Core.Pooling
 
         protected virtual void OnDestroy()
         {
-            if (_container != null) Destroy(_container.gameObject);
+            if (_container != null) UnityEngine.Object.Destroy(_container.gameObject);
             if (_prefabHandle.IsValid()) Addressables.Release(_prefabHandle);
         }
     }
